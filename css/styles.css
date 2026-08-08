@@ -47,9 +47,11 @@ header {
   gap: 0.75rem;
 }
 
+/* Aumento de tamaño del Logo */
 .logo-img {
-  height: 40px;
+  height: 80px; /* Incrementado para mayor legibilidad */
   width: auto;
+  border-radius: 8px;
 }
 
 /* Botones Principales */
@@ -63,12 +65,13 @@ header {
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .btn:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 163, 255, 0.4);
 }
 
 .btn-secondary {
@@ -79,11 +82,11 @@ header {
 }
 
 .btn-secondary:hover {
-  background-color: rgba(0, 163, 255, 0.08); /* Fondo azul muy tenue al pasar el cursor */
-  border-color: var(--primary);              /* Borde cambia a azul cian */
+  background-color: rgba(0, 163, 255, 0.08);
+  border-color: var(--primary);
   color: #FFFFFF;
-  box-shadow: 0 0 12px rgba(0, 163, 255, 0.3); /* Resplandor tenue azul */
-  transform: translateY(-2px);               /* Ligero movimiento hacia arriba */
+  box-shadow: 0 0 12px rgba(0, 163, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 /* Contenedores Principales */
@@ -93,6 +96,26 @@ main {
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
+}
+
+/* Estilos de Redes Sociales con efecto de resplandor */
+.social-link {
+  display: inline-block;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.social-link:hover {
+  color: #FFFFFF;
+  border-color: var(--primary);
+  background-color: rgba(0, 163, 255, 0.08);
+  box-shadow: 0 0 12px rgba(0, 163, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 footer {
