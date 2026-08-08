@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Node | Tarjeta Digital</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Estilos específicos para la tarjeta digital */
+    body {
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      min-height: 100vh;
+    }
+    .card-container {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+    .card-logo {
+      width: 110px;
+      height: auto;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+    .card-title {
+      font-size: 1.5rem;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+    .card-subtitle {
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn-card {
+      width: 100%;
+      text-align: center;
+      padding: 0.85rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .social-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .social-links a:hover {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    <!-- Logo -->
+    <img src="assets/img/logo-dark.jpg" alt="Deep Node Logo" class="card-logo">
+    
+    <h1 class="card-title">Deep Node</h1>
+    <p class="card-subtitle">Automatización de Procesos & Sistemas</p>
+
+    <!-- Botones de Acción Rápidos -->
+    <div class="action-buttons">
+      <!-- Guardar Contacto Directo -->
+      <a href="contacto.vcf" class="btn btn-card" download>
+        📇 Guardar Contacto
+      </a>
+
+      <!-- WhatsApp Directo (Reemplaza el número de teléfono con el tuyo) -->
+      <a href="https://api.whatsapp.com/send?phone=477988951706&text=Hola%20Deep%20Node,%20me%20interesa%20automatizar%20un%20proceso." target="_blank" class="btn btn-card btn-secondary">
+        💬 Enviar WhatsApp
+      </a>
+
+      <!-- Correo Electrónico (Reemplaza con tu correo) -->
+      <a href="deepnodeagency@gmail.com" class="btn btn-card btn-secondary">
+        ✉️ Enviar Correo
+      </a>
+
+      <!-- Enlace a la Landing Page Principal -->
+      <a href="index.html" class="btn btn-card btn-secondary">
+        🌐 Visitar Sitio Web
+      </a>
+    </div>
+
+    <!-- Redes Sociales -->
+    <div class="social-links">
+      <a href="https://www.facebook.com/DeepNode13" target="_blank">Facebook</a>
+      <span>•</span>
+      <a href="https://www.instagram.com/deepnodeia/" target="_blank">Instagram</a>
+    </div>
+  </div>
+
+</body>
+</html>
