@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Node | Automatización de Procesos & Sistemas</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Estilos específicos para secciones de la Landing Page */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero h1 span {
+      color: var(--primary);
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+    }
+    .demos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    .demo-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .demo-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+    .demo-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .demo-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .form-container {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .form-status {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header>
+    <div class="logo-container">
+      <img src="assets/img/logo-dark.jpg" alt="Deep Node Logo" class="logo-img">
+    </div>
+    <a href="#contacto" class="btn btn-secondary">Solicitar Diagnóstico</a>
+  </header>
+
+  <!-- Principal -->
+  <main>
+    <!-- Seccion Hero -->
+    <section class="hero">
+      <h1>Simplificamos la operación de tu negocio con <span>Automatización Inteligente</span></h1>
+      <p>Ahorra horas de trabajo manual, elimina errores operacionales y conecta tus flujos de trabajo con la infraestructura de Google y herramientas avanzadas.</p>
+      <a href="#contacto" class="btn">Pedir Demo / Diagnóstico</a>
+    </section>
+
+    <!-- Seccion Soluciones Desarrolladas -->
+    <h2 class="section-title">Soluciones & Sistemas Reales</h2>
+    <p class="section-subtitle">Casos de uso diseñados para optimizar la atención y el control operativo</p>
+    
+    <div class="demos-grid">
+      <div class="demo-card">
+        <h3>📅 Agendamiento de Citas Automático</h3>
+        <p>Sistema inteligente para barberías, consultorios y despachos legales. Gestión de agenda, confirmación de citas y recordatorios en tiempo real.</p>
+      </div>
+      <div class="demo-card">
+        <h3>🍽️ Ecosistema Gastronómico</h3>
+        <p>Menú digital interactivo, pantalla de comandas en cocina y panel de administración centralizado para restaurantes y negocios de comida.</p>
+      </div>
+      <div class="demo-card">
+        <h3>📊 CRM & Control de Ventas Diario</h3>
+        <p>Panel administrativo sobre Google Sheets y Apps Script para el seguimiento de clientes, control de ingresos y métricas operativas.</p>
+      </div>
+    </div>
+
+    <!-- Seccion Flexibilidad de Sector -->
+    <section style="text-align: center; margin: 4rem 0; padding: 2rem; background-color: var(--bg-card); border-radius: 16px; border: 1px solid var(--border-color);">
+      <h2>⚡ Automatización para Cualquier Sector</h2>
+      <p style="color: var(--text-muted); max-width: 700px; margin: 1rem auto 0;">
+        No importa el giro de tu empresa. Analizamos la lógica de tus procesos manuales y construimos integraciones a la medida usando WhatsApp, correo, formularios e infraestructura en la nube.
+      </p>
+    </section>
+
+    <!-- Formulario de Captura -->
+    <h2 id="contacto" class="section-title">Solicita un Diagnóstico de 10 Minutos</h2>
+    <p class="section-subtitle">Cuéntanos sobre tu negocio y analicemos qué procesos puedes automatizar</p>
+
+    <div class="form-container">
+      <form id="leadForm">
+        <div class="form-group">
+          <label for="nombre">Nombre Completo *</label>
+          <input type="text" id="nombre" required placeholder="Tu nombre">
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono (WhatsApp) *</label>
+          <input type="tel" id="telefono" required placeholder="+52 000 000 0000">
+        </div>
+
+        <div class="form-group">
+          <label for="correo">Correo Electrónico *</label>
+          <input type="email" id="correo" required placeholder="correo@ejemplo.com">
+        </div>
+
+        <div class="form-group">
+          <label for="tipoNegocio">Tipo de Negocio / Giro *</label>
+          <input type="text" id="tipoNegocio" required placeholder="Ej. Restaurante, Barbería, Consultoría...">
+        </div>
+
+        <div class="form-group">
+          <label for="descripcion">¿Qué proceso te gustaría automatizar?</label>
+          <textarea id="descripcion" rows="4" placeholder="Describe brevemente tus tareas manuales o lo que deseas mejorar..."></textarea>
+        </div>
+
+        <button type="submit" class="btn" style="width: 100%;">Enviar Solicitud</button>
+        <div id="formStatus" class="form-status"></div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Pie de Pagina con Redes Sociales -->
+  <footer>
+    <p style="margin-bottom: 1rem;">© Deep Node - Automatización & Sistemas</p>
+    <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
+      <a href="https://facebook.com" target="_blank" style="color: var(--text-muted); text-decoration: none;">Facebook</a>
+      <a href="https://instagram.com" target="_blank" style="color: var(--text-muted); text-decoration: none;">Instagram</a>
+      <a href="tarjeta.html" style="color: var(--primary); text-decoration: none;">Ver Tarjeta Digital</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/form-n8n.js"></script>
+</body>
+</html>
