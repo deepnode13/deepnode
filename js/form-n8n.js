@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     // Reemplaza esta URL con la de tu Webhook de n8n cuando esté configurado
-    const N8N_WEBHOOK_URL = 'https://TU-INSTANCIA-N8N.com/webhook/landing-lead';
+    const N8N_WEBHOOK_URL = 'https://n8nauto.rebel-ia.site/webhook/landing-lead';
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.textContent;
