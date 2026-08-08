@@ -75,10 +75,15 @@ header {
   background-color: transparent;
   color: var(--text-main);
   border: 1px solid var(--border-color);
+  transition: all 0.25s ease;
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-card);
+  background-color: rgba(0, 163, 255, 0.08); /* Fondo azul muy tenue al pasar el cursor */
+  border-color: var(--primary);              /* Borde cambia a azul cian */
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(0, 163, 255, 0.3); /* Resplandor tenue azul */
+  transform: translateY(-2px);               /* Ligero movimiento hacia arriba */
 }
 
 /* Contenedores Principales */
