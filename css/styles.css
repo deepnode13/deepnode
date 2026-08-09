@@ -126,3 +126,27 @@ footer {
   border-top: 1px solid var(--border-color);
   margin-top: auto;
 }
+
+/* ==========================================
+   EFECTO CASCADA Y REVELADO AL HACER SCROLL
+   ========================================== */
+
+/* Estado inicial: oculto y ligeramente desplazado hacia abajo */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Estado activo: visible en su posición original */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Retardo en cascada para elementos en cuadrícula */
+.demos-grid .demo-card:nth-child(1) { transition-delay: 0.1s; }
+.demos-grid .demo-card:nth-child(2) { transition-delay: 0.25s; }
+.demos-grid .demo-card:nth-child(3) { transition-delay: 0.4s; }
