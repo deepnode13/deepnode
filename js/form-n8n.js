@@ -60,3 +60,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+/* ==========================================
+   ANIMACIÓN DE CASCADA AL HACER SCROLL
+   ========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px', // Se activa un poco antes de llegar al elemento
+    threshold: 0.15
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        // Opcional: si quieres que la animación ocurra solo la primera vez, desuscribimos el elemento:
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  reveals.forEach(element => revealObserver.observe(element));
+});
