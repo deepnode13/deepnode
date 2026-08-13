@@ -6,112 +6,246 @@
   <title>Deep Node | Tarjeta Digital</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* Estilos específicos para la tarjeta digital */
+    /* ==========================================
+       ESTILOS DEL CARRUSEL COVERFLOW 3D
+       ========================================== */
     body {
+      overflow-x: hidden;
+      background-color: #0B0F17;
+    }
+
+    .carousel-container {
+      perspective: 1000px; /* Sensación de profundidad 3D */
+      width: 100%;
+      max-width: 900px;
+      height: 480px;
+      margin: 2rem auto 1rem;
+      display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1rem;
-      min-height: 100vh;
+      position: relative;
     }
-    .card-container {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 2rem 1.5rem;
-      max-width: 400px;
+
+    .carousel-track {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
       width: 100%;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      height: 100%;
+      transform-style: preserve-3d;
     }
-    .card-logo {
-      width: 110px;
-      height: auto;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-    }
-    .card-title {
-      font-size: 1.5rem;
-      color: var(--text-main);
-      margin-bottom: 0.25rem;
-    }
-    .card-subtitle {
-      color: var(--primary);
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-    }
-    .action-buttons {
+
+    .card-3d {
+      position: absolute;
+      width: 280px;
+      height: 380px;
+      background: rgba(22, 31, 48, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 163, 255, 0.2);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
-      margin-bottom: 1.5rem;
-    }
-    .btn-card {
-      width: 100%;
-      text-align: center;
-      padding: 0.85rem;
-      font-size: 0.95rem;
-      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      text-align: center;
+      color: #F3F4F6;
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      user-select: none;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
     }
-    .social-links {
+
+    /* Tarjeta Central (Enfocada) */
+    .card-3d.active {
+      transform: translateX(0) translateZ(100px) rotateY(0deg);
+      border-color: #00A3FF;
+      box-shadow: 0 0 30px rgba(0, 163, 255, 0.4), 0 20px 40px rgba(0,0,0,0.6);
+      opacity: 1;
+      z-index: 10;
+      background: rgba(22, 31, 48, 0.95);
+    }
+
+    /* Tarjeta Izquierda Próxima */
+    .card-3d.prev {
+      transform: translateX(-180px) translateZ(-50px) rotateY(35deg);
+      opacity: 0.5;
+      z-index: 5;
+    }
+
+    /* Tarjeta Izquierda Lejana */
+    .card-3d.far-prev {
+      transform: translateX(-320px) translateZ(-150px) rotateY(50deg);
+      opacity: 0.2;
+      z-index: 2;
+    }
+
+    /* Tarjeta Derecha Próxima */
+    .card-3d.next {
+      transform: translateX(180px) translateZ(-50px) rotateY(-35deg);
+      opacity: 0.5;
+      z-index: 5;
+    }
+
+    /* Tarjeta Derecha Lejana */
+    .card-3d.far-next {
+      transform: translateX(320px) translateZ(-150px) rotateY(-50deg);
+      opacity: 0.2;
+      z-index: 2;
+    }
+
+    .card-3d .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-3d h2 {
+      font-size: 1.4rem;
+      color: #00A3FF;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-3d p {
+      font-size: 0.9rem;
+      color: #9CA3AF;
+    }
+
+    /* Controles de Navegación inferior */
+    .controls {
       display: flex;
       justify-content: center;
-      gap: 1.25rem;
+      align-items: center;
+      gap: 1.5rem;
       margin-top: 1rem;
     }
-    .social-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
+
+    .control-btn {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      color: #00A3FF;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
     }
-    .social-links a:hover {
-      color: var(--primary);
+
+    .control-btn:hover {
+      border-color: #00A3FF;
+      box-shadow: 0 0 10px rgba(0,163,255,0.3);
     }
   </style>
 </head>
 <body>
 
-  <div class="card-container">
-    <!-- Logo -->
-    <img src="assets/img/logo-dark.jpg" alt="Deep Node Logo" class="card-logo">
-    
-    <h1 class="card-title">Deep Node</h1>
-    <p class="card-subtitle">Automatización de Procesos </p>
+  <!-- Encabezado con Logo -->
+  <header>
+    <div class="logo-container">
+      <img src="assets/img/logo-dark.jpg" alt="Deep Node Logo" class="logo-img">
+    </div>
+    <a href="index.html" class="social-link">Ir a la Web</a>
+  </header>
 
-    <!-- Botones de Acción Rápidos -->
-    <div class="action-buttons">
-      <!-- Guardar Contacto Directo -->
-      <a href="contacto.vcf" class="btn btn-card" download>
-        📇 Guardar Contacto
-      </a>
+  <!-- Carrusel 3D -->
+  <main>
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        
+        <!-- Tarjeta 1 -->
+        <div class="card-3d far-prev">
+          <div class="icon">🚀</div>
+          <h2>Deep Node</h2>
+          <p>Automatización de procesos e infraestructura inteligente para negocios.</p>
+        </div>
 
-      <!-- WhatsApp Directo (Reemplaza el número de teléfono con el tuyo) -->
-      <a href="https://api.whatsapp.com/send/?phone=447988951706&text=Hola%20Deep%20Node,%20me%20interesa%20automatizar%20un%20proceso." target="_blank" class="btn btn-card btn-secondary">
-        💬 Enviar WhatsApp
-      </a>
+        <!-- Tarjeta 2 -->
+        <div class="card-3d prev">
+          <div class="icon">📅</div>
+          <h2>Agendamiento</h2>
+          <p>Citas automáticas para barberías, consultorios y servicios profesionales.</p>
+        </div>
 
-      <!-- Correo Electrónico (Reemplaza con tu correo) -->
-      <a href="mailto:deepnodeagency@gmail.com" class="btn btn-card btn-secondary">
-        ✉️ Enviar Correo
-      </a>
+        <!-- Tarjeta 3 (Central Inicial) -->
+        <div class="card-3d active">
+          <div class="icon">👤</div>
+          <h2>Contacto Directo</h2>
+          <p>Guarda mi contacto o escríbeme directamente por WhatsApp.</p>
+          <a href="assets/vcard.vcf" class="btn" style="margin-top: 1.25rem; width: 100%;">Guardar Contacto</a>
+        </div>
 
-      <!-- Enlace a la Landing Page Principal -->
-      <a href="index.html" class="btn btn-card btn-secondary">
-        🌐 Visitar Sitio Web
-      </a>
+        <!-- Tarjeta 4 -->
+        <div class="card-3d next">
+          <div class="icon">🍽️</div>
+          <h2>Gastronómico</h2>
+          <p>Menús digitales, comandas en cocina y administración centralizada.</p>
+        </div>
+
+        <!-- Tarjeta 5 -->
+        <div class="card-3d far-next">
+          <div class="icon">📊</div>
+          <h2>CRM & Control</h2>
+          <p>Paneles de ventas e ingresos conectados con Google Sheets y n8n.</p>
+        </div>
+
+      </div>
     </div>
 
-    <!-- Redes Sociales -->
-    <div class="social-links">
-      <a href="https://www.facebook.com/DeepNode13" target="_blank">Facebook</a>
-      <span>•</span>
-      <a href="https://www.instagram.com/deepnodeia/" target="_blank">Instagram</a>
+    <!-- Controles para cambiar de tarjeta -->
+    <div class="controls">
+      <button class="control-btn" id="prevBtn">❮ Anterior</button>
+      <button class="control-btn" id="nextBtn">Siguiente ❯</button>
     </div>
-  </div>
+  </main>
 
+  <!-- Script interactivo de rotación -->
+  <script>
+    const cards = Array.from(document.querySelectorAll('.card-3d'));
+    const classes = ['far-prev', 'prev', 'active', 'next', 'far-next'];
+    let currentIndex = 2; // Inicia en la central (índice 2)
+
+    function updateCarousel() {
+      cards.forEach((card, index) => {
+        card.className = 'card-3d'; // Resetear clases
+        const offset = index - currentIndex;
+
+        if (offset === 0) {
+          card.classList.add('active');
+        } else if (offset === -1) {
+          card.classList.add('prev');
+        } else if (offset === -2) {
+          card.classList.add('far-prev');
+        } else if (offset === 1) {
+          card.classList.add('next');
+        } else if (offset === 2) {
+          card.classList.add('far-next');
+        } else {
+          // Si hay más tarjetas, las oculta
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+        }
+      });
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (currentIndex < cards.length - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+
+    // Permite hacer clic directamente en las tarjetas laterales para enfocar
+    cards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+  </script>
 </body>
 </html>
